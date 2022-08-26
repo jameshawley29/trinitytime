@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1>Hello World</h1>
-<!-- Display the countdown timer in an element -->
+<h1 id="test">Hello World</h1>
 <p id="demo"></p>
 <script>
   const userAction = async () => {
     const response = await fetch('https://us-east-1.aws.data.mongodb-api.com/app/testapp-bnqjv/endpoint/api?secret=secret');
     const myJson = await response.json(); //extract JSON from the http response
+    console.log(myJson);
     // do something with myJson
-    document.getElementById("demo").innerHTML = JSON.parse(myJson);
+    document.getElementById("test").innerHTML = myJson;
   }
+  userAction();
 </script>
 </html>
