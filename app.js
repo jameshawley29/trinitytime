@@ -15,7 +15,13 @@ function update_time(obj) {
 
     let seconds_till_bell = get_next_class(schedule);
 
-    document.getElementById("clock").innerHTML = seconds_till_bell + " - " + ~~(seconds_till_bell/60) + ":" + seconds_till_bell%60;
+    document.getElementById("clock").innerHTML = seconds_till_bell.toLocaleString('en-US', {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      }) + " - " + ~~(seconds_till_bell/60) + ":" + (seconds_till_bell%60).toLocaleString('en-US', {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
 
     let t = setTimeout(function(){ update_time(obj) }, 1000);
 }
