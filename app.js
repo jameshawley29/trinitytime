@@ -16,7 +16,7 @@ function update_time(obj) {
     const params = get_next_class(schedule);
     let seconds_till_bell = params.time_left;
 
-    document.getElementById("clock").innerHTML = ~~(seconds_till_bell/60) + ":" + (seconds_till_bell%60).toLocaleString('en-US', {
+    document.getElementById("clock").innerHTML = (~~(seconds_till_bell/60)) + ":" + (seconds_till_bell%60).toLocaleString('en-US', {
         minimumIntegerDigits: 2,
         useGrouping: false
       });
