@@ -21,7 +21,7 @@ function update_time(obj) {
         useGrouping: false
       });
 
-    document.getElementById("description").innerHTML = "Till " + params.class_name + " " + (params.start_period ? "Starts" : "Ends");
+    document.getElementById("description").innerHTML = "Til " + params.class_name + " " + (params.start_period ? "Starts" : "Ends");
 
     let t = setTimeout(function(){ update_time(obj) }, 1000);
 }
