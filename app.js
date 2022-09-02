@@ -11,6 +11,9 @@ userAction();
 
 
 function update_time(obj) {
+    //re call
+    let t = setTimeout(function(){ update_time(obj) }, 1000);
+
     //initialize
     const name = obj.name;
     const schedule = obj.schedule;
@@ -35,8 +38,6 @@ function update_time(obj) {
     
     document.getElementById("clock").style.color = `#${clock_color}`
 
-    //re call
-    let t = setTimeout(function(){ update_time(obj) }, 1000);
 }
 
 
