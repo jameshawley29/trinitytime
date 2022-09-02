@@ -8,6 +8,10 @@ h1 {
 
 p {
     display: block;
-    font-size: 10vw;
+    font-size: 7vw;
     text-align: center;
+}
+
+p.time {
+    font-size: 15vw;
 }
