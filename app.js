@@ -9,22 +9,36 @@ const userAction = async () => {
 
 userAction();
 
+
 function update_time(obj) {
+    //initialize
     const name = obj.name;
     const schedule = obj.schedule;
-
     const params = get_next_class(schedule);
     let seconds_till_bell = params.time_left;
+    let clock_color = "00fc00";
 
+    //update
+    if (seconds_till_bell < 60){
+        clock_color = "ff0000"
+    } else if (seconds_till_bell < (60*10) ){
+        clock_color = "eed202"
+    }
+
+    //assign to html
     document.getElementById("clock").innerHTML = (~~(seconds_till_bell/60)) + ":" + (seconds_till_bell%60).toLocaleString('en-US', {
         minimumIntegerDigits: 2,
         useGrouping: false
       });
 
     document.getElementById("description").innerHTML = "Til " + params.class_name + " " + (params.start_period ? "Starts" : "Ends");
+    
+    document.getElementById("clock").style.color = `#${clock_color}`
 
+    //re call
     let t = setTimeout(function(){ update_time(obj) }, 1000);
 }
+
 
 function get_next_class(schedule_obj) {
 
@@ -51,6 +65,7 @@ function get_next_class(schedule_obj) {
         }    
     }
 }
+
 
 function time_string_to_seconds(time) {
     const middle = time.indexOf(":");
