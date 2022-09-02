@@ -13,15 +13,15 @@ function update_time(obj) {
     const name = obj.name;
     const schedule = obj.schedule;
 
-    let seconds_till_bell = get_next_class(schedule);
+    const params = get_next_class(schedule);
+    let seconds_till_bell = params.time_left;
 
-    document.getElementById("clock").innerHTML = seconds_till_bell.toLocaleString('en-US', {
-        minimumIntegerDigits: 2,
-        useGrouping: false
-      }) + " - " + ~~(seconds_till_bell/60) + ":" + (seconds_till_bell%60).toLocaleString('en-US', {
+    document.getElementById("clock").innerHTML = ~~(seconds_till_bell/60) + ":" + (seconds_till_bell%60).toLocaleString('en-US', {
         minimumIntegerDigits: 2,
         useGrouping: false
       });
+
+    document.getElementById("description").innerHTML = "Till " + params.class_name + " " + (params.start_period ? "Starts" : "Ends");
 
     let t = setTimeout(function(){ update_time(obj) }, 1000);
 }
@@ -33,20 +33,21 @@ function get_next_class(schedule_obj) {
 
     let times = schedule_obj.map(element => element.time);
 
-    for (period of times) {
-
-        for (bell of period) {
+    for (period of schedule_obj) {
+        let count = 0
+        for (bell of period.time) {
             let bell_time = time_string_to_seconds(bell, 2);
             let time_now_in_secs = time_string_to_seconds(current_time[0]+":"+current_time[1]) + current_time[2];
 
-            console.log("bell time: ", bell_time);
-            console.log("time now ", time_now_in_secs);
-            console.log("diff ", bell_time-time_now_in_secs);
+            // console.log("bell time: ", bell_time);
+            // console.log("time now ", time_now_in_secs);
+            // console.log("diff ", bell_time-time_now_in_secs);
             
             if (time_now_in_secs <= bell_time) {
-                return bell_time-time_now_in_secs;
+                return {time_left: bell_time-time_now_in_secs, class_name: period.name, start_period: count==0};
             }
-    
+            
+            count+=1;
         }    
     }
 }
