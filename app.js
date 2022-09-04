@@ -12,7 +12,7 @@ userAction();
 
 function update_time(obj) {
     //re call
-    let t = setTimeout(function(){ update_time(obj) }, 1000);
+    let t = setTimeout(function(){ update_time(obj) }, 195);
 
     //initialize
     const name = obj.name;
