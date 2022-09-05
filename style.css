@@ -6,14 +6,24 @@ h1 {
     font-size: 5vw;
 }
 
-p {
+.info {
     display: block;
     font-size: 9vw;
     text-align: center;
     margin: 0 1;
 }
 
-p.time {
+.time {
     font-size: 9vw;
+    font-weight: 700;
     color: green;
+}
+
+#verison_num {
+    position: absolute;
+    bottom: 0;
+    left: 10;
+    justify-content: center;
+    align-content: center;
+
 }
