@@ -22,9 +22,9 @@ function update_time(obj) {
     let clock_color = "00fc00";
 
     //update
-    if (seconds_till_bell < 60){
+    if (seconds_till_bell < (60*5)){
         clock_color = "ff0000"
-    } else if (seconds_till_bell < (60*10) ){
+    } else if (seconds_till_bell < (60*20) ){
         clock_color = "eed202"
     }
 
