@@ -20,7 +20,7 @@ function update_time(obj) {
     if (params != undefined) {
         let t = setTimeout(function(){ update_time(obj) }, 195);
     } else {
-        document.getElementById("description").innerHTML = "no more classes";
+        document.getElementById("description").innerHTML = "no more classes :)";
         return null;
     }
 
