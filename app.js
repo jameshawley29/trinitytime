@@ -11,13 +11,19 @@ userAction();
 
 
 function update_time(obj) {
-    //re call
-    let t = setTimeout(function(){ update_time(obj) }, 195);
-
     //initialize
     const name = obj.name;
     const schedule = obj.schedule;
     const params = get_next_class(schedule);
+
+    //re call
+    if (params != undefined) {
+        let t = setTimeout(function(){ update_time(obj) }, 195);
+    } else {
+        document.getElementById("description").innerHTML = "no more classes";
+        return null;
+    }
+
     let seconds_till_bell = params.time_left;
     let clock_color = "00fc00";
 
