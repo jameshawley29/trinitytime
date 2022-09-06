@@ -57,16 +57,16 @@ function get_next_class(schedule_obj) {
     for (period of schedule_obj) {
         let count = 0
         for (bell of period.time) {
+            const offset = 1;
             let bell_time = time_string_to_seconds(bell, 2);
-            let time_now_in_secs = time_string_to_seconds(current_time[0]+":"+current_time[1]) + current_time[2];
+            let time_now_in_secs = time_string_to_seconds(current_time[0]+":"+current_time[1]) + current_time[2]-1;
 
             // console.log("bell time: ", bell_time);
             // console.log("time now ", time_now_in_secs);
             // console.log("diff ", bell_time-time_now_in_secs);
-            const offset = 1;
             
             if (time_now_in_secs <= bell_time) {
-                return {time_left: (bell_time-time_now_in_secs-offset), class_name: period.name, start_period: count==0};
+                return {time_left: (bell_time-time_now_in_secs), class_name: period.name, start_period: count==0};
             }
             
             count+=1;
