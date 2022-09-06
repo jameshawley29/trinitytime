@@ -63,9 +63,10 @@ function get_next_class(schedule_obj) {
             // console.log("bell time: ", bell_time);
             // console.log("time now ", time_now_in_secs);
             // console.log("diff ", bell_time-time_now_in_secs);
+            const offset = 1;
             
             if (time_now_in_secs <= bell_time) {
-                return {time_left: bell_time-time_now_in_secs, class_name: period.name, start_period: count==0};
+                return {time_left: (bell_time-time_now_in_secs-offset), class_name: period.name, start_period: count==0};
             }
             
             count+=1;
