@@ -3,7 +3,7 @@ const userAction = async () => {
     const myJson = await response.json(); //extract JSON from the http response
     console.log(myJson);
     // do something with myJson
-    document.getElementById("test").innerHTML = myJson.name;
+    document.getElementById("day_type").innerHTML = myJson.name.substring(0,1);
     update_time(myJson);
   }
 
@@ -20,18 +20,22 @@ function update_time(obj) {
     if (params != undefined) {
         let t = setTimeout(function(){ update_time(obj) }, 195);
     } else {
+        document.getElementById("clock").innerHTML = "00:00";
         document.getElementById("description").innerHTML = "no more classes :)";
         return null;
     }
 
     let seconds_till_bell = params.time_left;
     let clock_color = "00fc00";
+    let background_color = "D4FBAD";
 
     //update
     if (seconds_till_bell < (60*5)){
-        clock_color = "ff0000"
+        clock_color = "ff0000";
+        background_color = "FBBAAD";
     } else if (seconds_till_bell < (60*20) ){
-        clock_color = "eed202"
+        clock_color = "eed202";
+        background_color = "FBF8AD";
     }
 
     //assign to html
@@ -41,7 +45,8 @@ function update_time(obj) {
       });
 
     document.getElementById("description").innerHTML = "Until " + params.class_name + " " + (params.start_period ? "Starts" : "Ends");
-    
+    document.body.style.background = "#" + background_color;
+
     document.getElementById("clock").style.color = `#${clock_color}`
 
 }
