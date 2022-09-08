@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>analytics</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+  <p id="total">total</p>
+  <p id="individual">individual</p>
+	<script>
+    fetch("https://us-east-1.aws.data.mongodb-api.com/app/testapp-bnqjv/endpoint/analytics").then(res => {
+      res.json().then(res_obj => {
+        document.getElementById("total").innerHTML = "total: "+res_obj.total_view_count;
+        document.getElementById("individual").innerHTML = "individual: "+res_obj.unique_view_count;
+        console.log(res_obj);
+    });
+    });
+  </script>
+  </body>
+</html>
