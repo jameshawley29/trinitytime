@@ -18,7 +18,7 @@ function update_time(obj) {
 
     //re call
     if (params != undefined) {
-        let t = setTimeout(function(){ update_time(obj) }, 195);
+        let t = setTimeout(function(){ update_time(obj) }, 999);
     } else {
         document.getElementById("clock").innerHTML = "00:00";
         document.getElementById("description").innerHTML = "no more classes :)";
@@ -27,15 +27,17 @@ function update_time(obj) {
 
     let seconds_till_bell = params.time_left;
     let clock_color = "00fc00";
-    let background_color = "D4FBAD";
+    //let background_color = "D4FBAD";
+
+    //seconds_till_bell = 1110;
 
     //update
     if (seconds_till_bell < (60*5)){
         clock_color = "ff0000";
-        background_color = "FBBAAD";
+        //background_color = "FBBAAD";
     } else if (seconds_till_bell < (60*20) ){
         clock_color = "eed202";
-        background_color = "FBF8AD";
+        //background_color = "FFFCA3";
     }
 
     //assign to html
@@ -45,7 +47,7 @@ function update_time(obj) {
       });
 
     document.getElementById("description").innerHTML = "Until " + params.class_name + " " + (params.start_period ? "Starts" : "Ends");
-    document.body.style.background = "#" + background_color;
+    //document.body.style.background = "#" + background_color;
 
     document.getElementById("clock").style.color = `#${clock_color}`
 
