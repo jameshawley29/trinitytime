@@ -108,5 +108,5 @@ function time_diff_to_time_string(diff) {
 }
 
 function get_description(period_name, is_start) {
-    return `Time until ${period_name} ${is_start ? "starts" : "ends"}`;
+    return `Time until ${period_name} ${is_start ? "starts" : "ends"}${window.innerWidth<500? "" : ":"}`;
 }

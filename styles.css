@@ -41,9 +41,10 @@ body {
     font-weight: 900;
     font-size: 5vw;
 
-    text-align: center;
+    text-align: left;
 
     margin-top: 7vw;
+    margin-left: 2.2vw;
 
     margin-bottom: 2vw;
 }
@@ -77,6 +78,7 @@ body {
     #description {
         margin-top: 5vw;
         margin-bottom: 5vw;
+        text-align: center;
     }
 }
 
