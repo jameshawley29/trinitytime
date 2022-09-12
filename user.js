@@ -1,3 +1,6 @@
+/*
+
+
 //check local storage
 let user_id = localStorage.getItem("user_id");
 //if theres something there call mongodb func with val
@@ -26,3 +29,7 @@ let lol = nAgt.substring(nAgt.indexOf("(")+1);
 lol = lol.substring(0,lol.indexOf(")"));
 
 console.log("nver: ",lol);
+
+
+*/
+//NEED to FIX THISSSSSSS
