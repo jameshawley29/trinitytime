@@ -4,6 +4,7 @@ async function on_open() {
         return res.json();
     });
 
+    
     obj.then(res => {
         console.log(res.day, res.week, res.schedule);
 
