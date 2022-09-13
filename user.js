@@ -1,4 +1,4 @@
-/*
+
 
 
 //check local storage
@@ -11,25 +11,12 @@ if (user_id != null) {
 }
 //if not call mongodb func with no val
 
-//get back a value
-//if the value is the same as the val in local storage then do nothing
-//else change local storage to be the new val
 
 fetch(base_url+params, {
     method: "POST"
 }).then(res => {
     res.json().then(new_user_id => {
+        console.log(new_user_id + 1);
         localStorage.setItem("user_id", new_user_id);
     })
 })
-
-//hehe
-var nAgt = navigator.userAgent;
-let lol = nAgt.substring(nAgt.indexOf("(")+1);
-lol = lol.substring(0,lol.indexOf(")"));
-
-console.log("nver: ",lol);
-
-
-*/
-//NEED to FIX THISSSSSSS
