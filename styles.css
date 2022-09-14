@@ -135,3 +135,16 @@ body {
     font-weight: 700;
     align-self: center;
 }
+
+
+
+
+#upcoming_events > div {
+    background-color: red;
+    border-radius: 10px;
+    padding: 2vw;
+}
+
+#upcoming_events > div > p {
+    margin-left: 2vw;
+}
