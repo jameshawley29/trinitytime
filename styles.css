@@ -87,6 +87,9 @@ body {
 
     bottom: 0;
     left: 0;
+
+    border: none;
+    background: none;
 }
 
 #week-schedule {
@@ -128,6 +131,8 @@ body {
     display: inline-flex;
     justify-content: space-between;
     width: 100%;
+
+    margin-top: 10px;
     
 }
 
