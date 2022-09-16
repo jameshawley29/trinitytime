@@ -25,7 +25,9 @@ function get_time_left(schedule_obj, clock_id, color_change_id, description_id) 
                 //diff in mins
                 const diff = (bell_time_ss-current_time_ss);
                 //console.log("diff: ", diff);
-                document.getElementById(clock_id).innerHTML = time_diff_to_time_string(diff);
+                let the_diff = time_diff_to_time_string(diff)
+                document.getElementById(clock_id).innerHTML = the_diff;
+                document.title = `${parseInt(diff/60)} mins left`;
 
                 
                 
@@ -76,15 +78,15 @@ function get_time_left(schedule_obj, clock_id, color_change_id, description_id) 
     }
 
 
-    function run() {
+    function run(is_hs) {
         let result = update();
 
-        if (result) {
-            setTimeout(function(){ run() }, 999);
+        if (result & localStorage.getItem("is_hs") == is_hs) {
+            setTimeout(function(){ run(is_hs) }, 999);
         }
     }
 
-    run();
+    run(localStorage.getItem("is_hs"));
     
 }
 
