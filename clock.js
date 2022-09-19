@@ -70,7 +70,7 @@ function get_time_left(schedule_obj, clock_id, color_change_id, description_id) 
             //if ran out of class
             if (index >= (schedule_obj).length*2) {
                 document.getElementById("clock").innerHTML = "0:00";
-                document.getElementById("description").innerHTML = "No More School"
+                document.getElementById("description").innerHTML = "No More School";
                 console.log("no more class");
                 return false;
             }
